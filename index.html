@@ -29,7 +29,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: #1f1f1f;
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -46,7 +46,23 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #e73c7e;
+            color: #fff;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -57,25 +73,13 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #fff;
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
             color: #e73c7e;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #e73c7e, #ee7752);
-            transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after {
@@ -484,6 +488,16 @@
             .section-title {
                 font-size: 2.2rem;
             }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+
+            .stats-container > div:last-child {
+                grid-column: 1 / -1;
+                margin-top: 2rem;
+            }
         }
 
         /* Scroll Progress Bar */
@@ -513,7 +527,10 @@
 
     <header>
         <nav>
-            <div class="logo">Стресс</div>
+            <div class="logo-container">
+                <img src="./images/logo.jpg" alt="😒 Кажется, логотип не загрузился..." class="logo-image">
+                <div class="logo">Стресс</div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#definition">Определение</a></li>
                 <li><a href="#types">Виды</a></li>
@@ -709,7 +726,7 @@
             <div class="section-content">
                 <div style="text-align: center; margin: 3rem 0;">
                     <div class="cards-grid" style="max-width: 800px; margin: 0 auto;">
-                        <div style="text-align: center; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5rem; max-width: 1000px; margin: 0 auto;">
+                        <div style="text-align: center; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5rem; max-width: 1000px; margin: 0 auto;" class="stats-container">
                             <div>
                                 <span class="stat-counter" id="counter1">70</span>
                                 <p>людей испытывают хронический стресс</p>
